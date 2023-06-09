@@ -16,6 +16,7 @@
 # include <signal.h>
 # include <unistd.h>
 
-
+void send_bit_char (pid_t pid, char c);
+void signal_process(int sig, siginfo_t *info, void *ucontext);
 
 #endif
