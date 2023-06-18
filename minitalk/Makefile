@@ -20,21 +20,19 @@ SRCS_CLIENT = client.c
 OBJS_CLIENT = ${SRCS_CLIENT:.c=.o}
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar
-AR_FLAGS = rcs
 
 all: ${NAME}
 
 ${NAME}: ${NAME_SERVER} ${NAME_CLIENT}
 
 ${NAME_SERVER}: ${OBJS_SERVER}
-	$(MAKE) -C libft
-	$(MAKE) -C ft_printf
+	make -C libft
+	make -C ft_printf
 	${CC} ${CFLAGS} libft/libft.a ft_printf/libftprintf.a ${SRCS_SERVER} -o ${NAME_SERVER}
 
 ${NAME_CLIENT}: ${OBJS_CLIENT}
-	$(MAKE) -C libft
-	$(MAKE) -C ft_printf
+	make -C libft
+	make -C ft_printf
 	${CC} ${CFLAGS} libft/libft.a ft_printf/libftprintf.a ${SRCS_CLIENT} -o ${NAME_CLIENT}
 
 clean:

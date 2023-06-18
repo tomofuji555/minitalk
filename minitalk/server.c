@@ -18,8 +18,9 @@ static int i;
 
 void signal_process(int sig, siginfo_t *info, void *ucontext)
 {
+	c << 1;
 	if (sig == SIGUSR1)
-		c = c | (1 << i);
+		c = c + 1;
 	i++;
 	if (i == 8)
 	{
